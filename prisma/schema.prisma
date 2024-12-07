@@ -1,0 +1,172 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model User {
+  id          Int      @id @default(autoincrement())
+  username    String   @unique
+  password    String // Password should be stored in hashed form.
+  email       String?
+  firstName   String?
+  lastName    String?
+  avatar      String? // Optional field for profile picture.
+  phoneNumber String? // Optional
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  role String // Role can be either 'ADMIN' or 'USER'
+
+  // Relationships
+  CodeTemplate CodeTemplate[]
+  BlogPost     BlogPost[]
+  Comment      Comment[]
+  Report       Report[]
+  Vote         Vote[]
+
+  @@map("users")
+}
+
+model CodeTemplateTag {
+  id   Int    @id @default(autoincrement())
+  name String
+
+  // Relationships
+  codeTemplate CodeTemplate[]
+
+  @@unique([name])
+  @@map("code_template_tags")
+}
+
+model CodeTemplate {
+  id          Int      @id @default(autoincrement())
+  title       String
+  description String
+  code        String
+  language    String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  // Relationships
+  author          User              @relation(fields: [authorId], references: [id])
+  authorId        Int
+  CodeTemplateTag CodeTemplateTag[]
+  BlogPost        BlogPost[]
+
+  @@map("code_templates")
+}
+
+model BlogPostTag {
+  id   Int    @id @default(autoincrement())
+  name String
+
+  // Relationships
+  blogPost BlogPost[]
+
+  @@unique([name])
+  @@map("blog_post_tags")
+}
+
+model BlogPost {
+  id          Int      @id @default(autoincrement())
+  title       String
+  description String
+  content     String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  // Relationships
+  author      User           @relation(fields: [authorId], references: [id])
+  authorId    Int
+  BlogPostTag BlogPostTag[]
+  Comment     Comment[]
+  likendTemp  CodeTemplate[]
+
+  // Ratings
+  upVotes   Int @default(0)
+  downVotes Int @default(0)
+
+  value Int @default(0) // Value is calculated as upVotes - downVotes
+
+  controversial Int @default(0) // Controversial is calculated as upVotes + downVotes
+
+  // Report count
+  reportsCount Int @default(0)
+
+  ishidden Boolean @default(false)
+
+  @@map("blog_posts")
+}
+
+model Comment {
+  id        Int      @id @default(autoincrement())
+  content   String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relationships
+  author   User @relation(fields: [authorId], references: [id])
+  authorId Int
+
+  blogPost   BlogPost @relation(fields: [blogPostId], references: [id])
+  blogPostId Int
+
+  replyToID   Int
+  replyToType String // Can be either 'blog_post' or 'comment'   
+
+  upVotes   Int @default(0)
+  downVotes Int @default(0)
+
+  value Int @default(0) // Value is calculated as upVotes - downVotes
+
+  controversial Int @default(0) // Controversial is calculated as upVotes + downVotes
+
+  ishidden Boolean @default(false)
+
+  // Report count
+  reportsCount Int @default(0)
+
+  @@map("comments")
+}
+
+model Report {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  reason    String
+
+  // Relationships
+  reportedBy   User @relation(fields: [reportedById], references: [id])
+  reportedById Int
+
+  reportingType String // Can be either 'blog_post' or 'comment'
+  reportingID   Int
+
+  @@map("reports")
+}
+
+model Vote {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+
+  // Relationships
+  user   User @relation(fields: [userId], references: [id])
+  userId Int
+
+  votingType String // Can be either 'blog_post' or 'comment'
+  votingId   Int
+
+  isUpVote Boolean
+
+  @@unique([userId, votingType, votingId])
+  @@map("votes")
+}

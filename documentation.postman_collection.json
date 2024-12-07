@@ -1,0 +1,5201 @@
+{
+	"info": {
+		"_postman_id": "8348b156-ca49-40d2-a640-10d788505383",
+		"name": "Next.js API Documentation",
+		"description": "An API documentation for 309Project",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39317844",
+		"_collection_link": "https://csc309-3766.postman.co/workspace/My-Workspace~c79022ae-974e-47a2-8e65-15be7fe8fabe/collection/39317844-8348b156-ca49-40d2-a640-10d788505383?action=share&source=collection_link&creator=39317844"
+	},
+	"item": [
+		{
+			"name": "api",
+			"item": [
+				{
+					"name": "reports",
+					"item": [
+						{
+							"name": "{reportId}",
+							"item": [
+								{
+									"name": "Hide a reported comment/blog post by report ID",
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/reports/:reportId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"reports",
+												":reportId"
+											],
+											"variable": [
+												{
+													"key": "reportId",
+													"value": "<integer>",
+													"description": "(Required) The ID of the report to update"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "The updated report object",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/reports/:reportId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"reports",
+														":reportId"
+													],
+													"variable": [
+														{
+															"key": "reportId"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"updatedRecord\": {}\n}"
+										},
+										{
+											"name": "Report ID is required or invalid reporting type",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/reports/:reportId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"reports",
+														":reportId"
+													],
+													"variable": [
+														{
+															"key": "reportId"
+														}
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										},
+										{
+											"name": "Forbidden",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/reports/:reportId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"reports",
+														":reportId"
+													],
+													"variable": [
+														{
+															"key": "reportId"
+														}
+													]
+												}
+											},
+											"status": "Forbidden",
+											"code": 403,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										},
+										{
+											"name": "Report not found",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/reports/:reportId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"reports",
+														":reportId"
+													],
+													"variable": [
+														{
+															"key": "reportId"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										},
+										{
+											"name": "Method not allowed",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/reports/:reportId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"reports",
+														":reportId"
+													],
+													"variable": [
+														{
+															"key": "reportId"
+														}
+													]
+												}
+											},
+											"status": "Method Not Allowed",
+											"code": 405,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										},
+										{
+											"name": "Internal server error",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/reports/:reportId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"reports",
+														":reportId"
+													],
+													"variable": [
+														{
+															"key": "reportId"
+														}
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							],
+							"auth": {
+								"type": "bearer",
+								"bearer": [
+									{
+										"key": "token",
+										"value": "{{admintoken}}",
+										"type": "string"
+									}
+								]
+							},
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"type": "text/javascript",
+										"packages": {},
+										"exec": [
+											""
+										]
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"packages": {},
+										"exec": [
+											""
+										]
+									}
+								}
+							]
+						},
+						{
+							"name": "Retrieve all reports",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admintoken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/admin/reports",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"admin",
+										"reports"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "A list of reports",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/reports",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"reports"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "[\n  {\n    \"id\": \"<integer>\",\n    \"reportingType\": \"<string>\",\n    \"reportingID\": \"<integer>\",\n    \"createdAt\": \"<dateTime>\",\n    \"updatedAt\": \"<dateTime>\"\n  },\n  {\n    \"id\": \"<integer>\",\n    \"reportingType\": \"<string>\",\n    \"reportingID\": \"<integer>\",\n    \"createdAt\": \"<dateTime>\",\n    \"updatedAt\": \"<dateTime>\"\n  }\n]"
+								},
+								{
+									"name": "Forbidden",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/reports",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"reports"
+											]
+										}
+									},
+									"status": "Forbidden",
+									"code": 403,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Method not allowed",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/reports",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"reports"
+											]
+										}
+									},
+									"status": "Method Not Allowed",
+									"code": 405,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Internal server error",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/reports",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"reports"
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "blogs",
+					"item": [
+						{
+							"name": "{blogId}",
+							"item": [
+								{
+									"name": "comments",
+									"item": [
+										{
+											"name": "{commentId}",
+											"item": [
+												{
+													"name": "report",
+													"item": [
+														{
+															"name": "Report a comment",
+															"request": {
+																"method": "POST",
+																"header": [
+																	{
+																		"key": "Content-Type",
+																		"value": "application/json"
+																	}
+																],
+																"body": {
+																	"mode": "raw",
+																	"raw": "{\n  \"reason\": \"<string>\"\n}",
+																	"options": {
+																		"raw": {
+																			"headerFamily": "json",
+																			"language": "json"
+																		}
+																	}
+																},
+																"url": {
+																	"raw": "{{baseUrl}}/api/blogs/:blogId/comments/:commentId/report",
+																	"host": [
+																		"{{baseUrl}}"
+																	],
+																	"path": [
+																		"api",
+																		"blogs",
+																		":blogId",
+																		"comments",
+																		":commentId",
+																		"report"
+																	],
+																	"variable": [
+																		{
+																			"key": "blogId",
+																			"value": "<integer>",
+																			"description": "(Required) The ID of the blog post"
+																		},
+																		{
+																			"key": "commentId",
+																			"value": "<integer>",
+																			"description": "(Required) The ID of the comment being reported"
+																		}
+																	]
+																},
+																"description": "Allows a user to report a comment for inappropriate content."
+															},
+															"response": [
+																{
+																	"name": "Report created successfully",
+																	"originalRequest": {
+																		"method": "POST",
+																		"header": [
+																			{
+																				"key": "Content-Type",
+																				"value": "application/json"
+																			}
+																		],
+																		"body": {
+																			"mode": "raw",
+																			"raw": "{\n  \"reason\": \"<string>\"\n}",
+																			"options": {
+																				"raw": {
+																					"headerFamily": "json",
+																					"language": "json"
+																				}
+																			}
+																		},
+																		"url": {
+																			"raw": "{{baseUrl}}/api/blogs/:blogId/comments/:commentId/report",
+																			"host": [
+																				"{{baseUrl}}"
+																			],
+																			"path": [
+																				"api",
+																				"blogs",
+																				":blogId",
+																				"comments",
+																				":commentId",
+																				"report"
+																			],
+																			"variable": [
+																				{
+																					"key": "blogId"
+																				},
+																				{
+																					"key": "commentId"
+																				}
+																			]
+																		}
+																	},
+																	"status": "Created",
+																	"code": 201,
+																	"_postman_previewlanguage": "text",
+																	"header": [],
+																	"cookie": [],
+																	"body": ""
+																},
+																{
+																	"name": "Missing blogId or commentId, or invalid reason",
+																	"originalRequest": {
+																		"method": "POST",
+																		"header": [
+																			{
+																				"key": "Content-Type",
+																				"value": "application/json"
+																			}
+																		],
+																		"body": {
+																			"mode": "raw",
+																			"raw": "{\n  \"reason\": \"<string>\"\n}",
+																			"options": {
+																				"raw": {
+																					"headerFamily": "json",
+																					"language": "json"
+																				}
+																			}
+																		},
+																		"url": {
+																			"raw": "{{baseUrl}}/api/blogs/:blogId/comments/:commentId/report",
+																			"host": [
+																				"{{baseUrl}}"
+																			],
+																			"path": [
+																				"api",
+																				"blogs",
+																				":blogId",
+																				"comments",
+																				":commentId",
+																				"report"
+																			],
+																			"variable": [
+																				{
+																					"key": "blogId"
+																				},
+																				{
+																					"key": "commentId"
+																				}
+																			]
+																		}
+																	},
+																	"status": "Bad Request",
+																	"code": 400,
+																	"_postman_previewlanguage": "text",
+																	"header": [],
+																	"cookie": [],
+																	"body": ""
+																},
+																{
+																	"name": "Unauthorized",
+																	"originalRequest": {
+																		"method": "POST",
+																		"header": [
+																			{
+																				"key": "Content-Type",
+																				"value": "application/json"
+																			}
+																		],
+																		"body": {
+																			"mode": "raw",
+																			"raw": "{\n  \"reason\": \"<string>\"\n}",
+																			"options": {
+																				"raw": {
+																					"headerFamily": "json",
+																					"language": "json"
+																				}
+																			}
+																		},
+																		"url": {
+																			"raw": "{{baseUrl}}/api/blogs/:blogId/comments/:commentId/report",
+																			"host": [
+																				"{{baseUrl}}"
+																			],
+																			"path": [
+																				"api",
+																				"blogs",
+																				":blogId",
+																				"comments",
+																				":commentId",
+																				"report"
+																			],
+																			"variable": [
+																				{
+																					"key": "blogId"
+																				},
+																				{
+																					"key": "commentId"
+																				}
+																			]
+																		}
+																	},
+																	"status": "Unauthorized",
+																	"code": 401,
+																	"_postman_previewlanguage": "text",
+																	"header": [],
+																	"cookie": [],
+																	"body": ""
+																},
+																{
+																	"name": "Comment not found",
+																	"originalRequest": {
+																		"method": "POST",
+																		"header": [
+																			{
+																				"key": "Content-Type",
+																				"value": "application/json"
+																			}
+																		],
+																		"body": {
+																			"mode": "raw",
+																			"raw": "{\n  \"reason\": \"<string>\"\n}",
+																			"options": {
+																				"raw": {
+																					"headerFamily": "json",
+																					"language": "json"
+																				}
+																			}
+																		},
+																		"url": {
+																			"raw": "{{baseUrl}}/api/blogs/:blogId/comments/:commentId/report",
+																			"host": [
+																				"{{baseUrl}}"
+																			],
+																			"path": [
+																				"api",
+																				"blogs",
+																				":blogId",
+																				"comments",
+																				":commentId",
+																				"report"
+																			],
+																			"variable": [
+																				{
+																					"key": "blogId"
+																				},
+																				{
+																					"key": "commentId"
+																				}
+																			]
+																		}
+																	},
+																	"status": "Not Found",
+																	"code": 404,
+																	"_postman_previewlanguage": "text",
+																	"header": [],
+																	"cookie": [],
+																	"body": ""
+																},
+																{
+																	"name": "Method Not Allowed",
+																	"originalRequest": {
+																		"method": "POST",
+																		"header": [
+																			{
+																				"key": "Content-Type",
+																				"value": "application/json"
+																			}
+																		],
+																		"body": {
+																			"mode": "raw",
+																			"raw": "{\n  \"reason\": \"<string>\"\n}",
+																			"options": {
+																				"raw": {
+																					"headerFamily": "json",
+																					"language": "json"
+																				}
+																			}
+																		},
+																		"url": {
+																			"raw": "{{baseUrl}}/api/blogs/:blogId/comments/:commentId/report",
+																			"host": [
+																				"{{baseUrl}}"
+																			],
+																			"path": [
+																				"api",
+																				"blogs",
+																				":blogId",
+																				"comments",
+																				":commentId",
+																				"report"
+																			],
+																			"variable": [
+																				{
+																					"key": "blogId"
+																				},
+																				{
+																					"key": "commentId"
+																				}
+																			]
+																		}
+																	},
+																	"status": "Method Not Allowed",
+																	"code": 405,
+																	"_postman_previewlanguage": "text",
+																	"header": [],
+																	"cookie": [],
+																	"body": ""
+																},
+																{
+																	"name": "Internal Server Error",
+																	"originalRequest": {
+																		"method": "POST",
+																		"header": [
+																			{
+																				"key": "Content-Type",
+																				"value": "application/json"
+																			}
+																		],
+																		"body": {
+																			"mode": "raw",
+																			"raw": "{\n  \"reason\": \"<string>\"\n}",
+																			"options": {
+																				"raw": {
+																					"headerFamily": "json",
+																					"language": "json"
+																				}
+																			}
+																		},
+																		"url": {
+																			"raw": "{{baseUrl}}/api/blogs/:blogId/comments/:commentId/report",
+																			"host": [
+																				"{{baseUrl}}"
+																			],
+																			"path": [
+																				"api",
+																				"blogs",
+																				":blogId",
+																				"comments",
+																				":commentId",
+																				"report"
+																			],
+																			"variable": [
+																				{
+																					"key": "blogId"
+																				},
+																				{
+																					"key": "commentId"
+																				}
+																			]
+																		}
+																	},
+																	"status": "Internal Server Error",
+																	"code": 500,
+																	"_postman_previewlanguage": "text",
+																	"header": [],
+																	"cookie": [],
+																	"body": ""
+																}
+															]
+														}
+													]
+												},
+												{
+													"name": "Retrieve a comment by ID",
+													"request": {
+														"auth": {
+															"type": "bearer",
+															"bearer": [
+																{
+																	"key": "token",
+																	"value": "{{token}}",
+																	"type": "string"
+																}
+															]
+														},
+														"method": "GET",
+														"header": [
+															{
+																"key": "Accept",
+																"value": "application/json"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/api/blogs/:blogId/comments/:commentId",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"blogs",
+																":blogId",
+																"comments",
+																":commentId"
+															],
+															"variable": [
+																{
+																	"key": "blogId",
+																	"value": "<integer>",
+																	"description": "(Required) The ID of the blog post"
+																},
+																{
+																	"key": "commentId",
+																	"value": "<integer>",
+																	"description": "(Required) The ID of the comment"
+																}
+															]
+														},
+														"description": "Retrieve a comment by its ID. If the comment is hidden, only the author or an admin can view it."
+													},
+													"response": [
+														{
+															"name": "A comment object",
+															"originalRequest": {
+																"method": "GET",
+																"header": [
+																	{
+																		"key": "Accept",
+																		"value": "application/json"
+																	}
+																],
+																"url": {
+																	"raw": "{{baseUrl}}/api/blogs/:blogId/comments/:commentId",
+																	"host": [
+																		"{{baseUrl}}"
+																	],
+																	"path": [
+																		"api",
+																		"blogs",
+																		":blogId",
+																		"comments",
+																		":commentId"
+																	],
+																	"variable": [
+																		{
+																			"key": "blogId"
+																		},
+																		{
+																			"key": "commentId"
+																		}
+																	]
+																}
+															},
+															"status": "OK",
+															"code": 200,
+															"_postman_previewlanguage": "json",
+															"header": [
+																{
+																	"key": "Content-Type",
+																	"value": "application/json"
+																}
+															],
+															"cookie": [],
+															"body": "{\n  \"id\": \"<integer>\",\n  \"content\": \"<string>\",\n  \"authorId\": \"<integer>\",\n  \"blogPostId\": \"<integer>\",\n  \"ishidden\": \"<boolean>\"\n}"
+														},
+														{
+															"name": "Missing blogId or commentId",
+															"originalRequest": {
+																"method": "GET",
+																"header": [],
+																"url": {
+																	"raw": "{{baseUrl}}/api/blogs/:blogId/comments/:commentId",
+																	"host": [
+																		"{{baseUrl}}"
+																	],
+																	"path": [
+																		"api",
+																		"blogs",
+																		":blogId",
+																		"comments",
+																		":commentId"
+																	],
+																	"variable": [
+																		{
+																			"key": "blogId"
+																		},
+																		{
+																			"key": "commentId"
+																		}
+																	]
+																}
+															},
+															"status": "Bad Request",
+															"code": 400,
+															"_postman_previewlanguage": "text",
+															"header": [],
+															"cookie": [],
+															"body": ""
+														},
+														{
+															"name": "Forbidden",
+															"originalRequest": {
+																"method": "GET",
+																"header": [],
+																"url": {
+																	"raw": "{{baseUrl}}/api/blogs/:blogId/comments/:commentId",
+																	"host": [
+																		"{{baseUrl}}"
+																	],
+																	"path": [
+																		"api",
+																		"blogs",
+																		":blogId",
+																		"comments",
+																		":commentId"
+																	],
+																	"variable": [
+																		{
+																			"key": "blogId"
+																		},
+																		{
+																			"key": "commentId"
+																		}
+																	]
+																}
+															},
+															"status": "Forbidden",
+															"code": 403,
+															"_postman_previewlanguage": "text",
+															"header": [],
+															"cookie": [],
+															"body": ""
+														},
+														{
+															"name": "Comment not found",
+															"originalRequest": {
+																"method": "GET",
+																"header": [],
+																"url": {
+																	"raw": "{{baseUrl}}/api/blogs/:blogId/comments/:commentId",
+																	"host": [
+																		"{{baseUrl}}"
+																	],
+																	"path": [
+																		"api",
+																		"blogs",
+																		":blogId",
+																		"comments",
+																		":commentId"
+																	],
+																	"variable": [
+																		{
+																			"key": "blogId"
+																		},
+																		{
+																			"key": "commentId"
+																		}
+																	]
+																}
+															},
+															"status": "Not Found",
+															"code": 404,
+															"_postman_previewlanguage": "text",
+															"header": [],
+															"cookie": [],
+															"body": ""
+														},
+														{
+															"name": "Internal Server Error",
+															"originalRequest": {
+																"method": "GET",
+																"header": [],
+																"url": {
+																	"raw": "{{baseUrl}}/api/blogs/:blogId/comments/:commentId",
+																	"host": [
+																		"{{baseUrl}}"
+																	],
+																	"path": [
+																		"api",
+																		"blogs",
+																		":blogId",
+																		"comments",
+																		":commentId"
+																	],
+																	"variable": [
+																		{
+																			"key": "blogId"
+																		},
+																		{
+																			"key": "commentId"
+																		}
+																	]
+																}
+															},
+															"status": "Internal Server Error",
+															"code": 500,
+															"_postman_previewlanguage": "text",
+															"header": [],
+															"cookie": [],
+															"body": ""
+														}
+													]
+												}
+											]
+										},
+										{
+											"name": "Add a new comment",
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": [
+														{
+															"key": "token",
+															"value": "{{token}}",
+															"type": "string"
+														}
+													]
+												},
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"content\": \"<string>\",\n  \"replyToID\": \"3\",\n  \"replyToType\": \"blog_post\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/blogs/:blogId/comments",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"blogs",
+														":blogId",
+														"comments"
+													],
+													"variable": [
+														{
+															"key": "blogId",
+															"value": "3",
+															"description": "(Required) The ID of the blog post"
+														}
+													]
+												},
+												"description": "Adds a new comment to a blog post or another comment."
+											},
+											"response": [
+												{
+													"name": "Comment created successfully",
+													"originalRequest": {
+														"method": "POST",
+														"header": [
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"content\": \"<string>\",\n  \"replyToID\": \"<integer>\",\n  \"replyToType\": \"comment\"\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/api/blogs/:blogId/comments",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"blogs",
+																":blogId",
+																"comments"
+															],
+															"variable": [
+																{
+																	"key": "blogId"
+																}
+															]
+														}
+													},
+													"status": "Created",
+													"code": 201,
+													"_postman_previewlanguage": "text",
+													"header": [],
+													"cookie": [],
+													"body": ""
+												},
+												{
+													"name": "Invalid input",
+													"originalRequest": {
+														"method": "POST",
+														"header": [
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"content\": \"<string>\",\n  \"replyToID\": \"<integer>\",\n  \"replyToType\": \"comment\"\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/api/blogs/:blogId/comments",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"blogs",
+																":blogId",
+																"comments"
+															],
+															"variable": [
+																{
+																	"key": "blogId"
+																}
+															]
+														}
+													},
+													"status": "Bad Request",
+													"code": 400,
+													"_postman_previewlanguage": "text",
+													"header": [],
+													"cookie": [],
+													"body": ""
+												},
+												{
+													"name": "User not found",
+													"originalRequest": {
+														"method": "POST",
+														"header": [
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"content\": \"<string>\",\n  \"replyToID\": \"<integer>\",\n  \"replyToType\": \"comment\"\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/api/blogs/:blogId/comments",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"blogs",
+																":blogId",
+																"comments"
+															],
+															"variable": [
+																{
+																	"key": "blogId"
+																}
+															]
+														}
+													},
+													"status": "Not Found",
+													"code": 404,
+													"_postman_previewlanguage": "text",
+													"header": [],
+													"cookie": [],
+													"body": ""
+												},
+												{
+													"name": "Internal server error",
+													"originalRequest": {
+														"method": "POST",
+														"header": [
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"content\": \"<string>\",\n  \"replyToID\": \"<integer>\",\n  \"replyToType\": \"comment\"\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/api/blogs/:blogId/comments",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"blogs",
+																":blogId",
+																"comments"
+															],
+															"variable": [
+																{
+																	"key": "blogId"
+																}
+															]
+														}
+													},
+													"status": "Internal Server Error",
+													"code": 500,
+													"_postman_previewlanguage": "text",
+													"header": [],
+													"cookie": [],
+													"body": ""
+												}
+											]
+										},
+										{
+											"name": "Get comments",
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": [
+														{
+															"key": "token",
+															"value": "{{token}}",
+															"type": "string"
+														}
+													]
+												},
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/blogs/:blogId/comments?page=1&limit=10&sortBy=createdAt",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"blogs",
+														":blogId",
+														"comments"
+													],
+													"query": [
+														{
+															"key": "page",
+															"value": "1",
+															"description": "The page number for pagination"
+														},
+														{
+															"key": "limit",
+															"value": "10",
+															"description": "The number of comments per page"
+														},
+														{
+															"key": "sortBy",
+															"value": "createdAt",
+															"description": "The field to sort by"
+														}
+													],
+													"variable": [
+														{
+															"key": "blogId",
+															"value": "1",
+															"description": "(Required) The ID of the blog post"
+														}
+													]
+												},
+												"description": "Retrieves comments for a specific blog post. Admins can view all comments, including hidden ones. Regular users can only view their own comments and non-hidden comments."
+											},
+											"response": [
+												{
+													"name": "A list of comments",
+													"originalRequest": {
+														"method": "GET",
+														"header": [],
+														"url": {
+															"raw": "{{baseUrl}}/api/blogs/:blogId/comments?page=1&limit=10&sortBy=createdAt",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"blogs",
+																":blogId",
+																"comments"
+															],
+															"query": [
+																{
+																	"key": "page",
+																	"value": "1",
+																	"description": "The page number for pagination"
+																},
+																{
+																	"key": "limit",
+																	"value": "10",
+																	"description": "The number of comments per page"
+																},
+																{
+																	"key": "sortBy",
+																	"value": "createdAt",
+																	"description": "The field to sort by"
+																}
+															],
+															"variable": [
+																{
+																	"key": "blogId"
+																}
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "text",
+													"header": [],
+													"cookie": [],
+													"body": ""
+												},
+												{
+													"name": "Internal server error",
+													"originalRequest": {
+														"method": "GET",
+														"header": [],
+														"url": {
+															"raw": "{{baseUrl}}/api/blogs/:blogId/comments?page=1&limit=10&sortBy=createdAt",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"blogs",
+																":blogId",
+																"comments"
+															],
+															"query": [
+																{
+																	"key": "page",
+																	"value": "1",
+																	"description": "The page number for pagination"
+																},
+																{
+																	"key": "limit",
+																	"value": "10",
+																	"description": "The number of comments per page"
+																},
+																{
+																	"key": "sortBy",
+																	"value": "createdAt",
+																	"description": "The field to sort by"
+																}
+															],
+															"variable": [
+																{
+																	"key": "blogId"
+																}
+															]
+														}
+													},
+													"status": "Internal Server Error",
+													"code": 500,
+													"_postman_previewlanguage": "text",
+													"header": [],
+													"cookie": [],
+													"body": ""
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "report",
+									"item": [
+										{
+											"name": "Report a blog post",
+											"request": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"reason\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/blogs/:blogId/report",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"blogs",
+														":blogId",
+														"report"
+													],
+													"variable": [
+														{
+															"key": "blogId",
+															"value": "<integer>",
+															"description": "(Required) The ID of the blog to report"
+														}
+													]
+												}
+											},
+											"response": [
+												{
+													"name": "The created report object",
+													"originalRequest": {
+														"method": "POST",
+														"header": [
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "Accept",
+																"value": "application/json"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"reason\": \"<string>\"\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/api/blogs/:blogId/report",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"blogs",
+																":blogId",
+																"report"
+															],
+															"variable": [
+																{
+																	"key": "blogId"
+																}
+															]
+														}
+													},
+													"status": "Created",
+													"code": 201,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"report\": {\n    \"id\": \"<integer>\",\n    \"reportedById\": \"<integer>\",\n    \"reason\": \"<string>\",\n    \"reportingType\": \"<string>\",\n    \"reportingID\": \"<integer>\",\n    \"createdAt\": \"<dateTime>\"\n  }\n}"
+												},
+												{
+													"name": "Blog ID or reason is invalid",
+													"originalRequest": {
+														"method": "POST",
+														"header": [
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"reason\": \"<string>\"\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/api/blogs/:blogId/report",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"blogs",
+																":blogId",
+																"report"
+															],
+															"variable": [
+																{
+																	"key": "blogId"
+																}
+															]
+														}
+													},
+													"status": "Bad Request",
+													"code": 400,
+													"_postman_previewlanguage": "text",
+													"header": [],
+													"cookie": [],
+													"body": ""
+												},
+												{
+													"name": "Forbidden",
+													"originalRequest": {
+														"method": "POST",
+														"header": [
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"reason\": \"<string>\"\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/api/blogs/:blogId/report",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"blogs",
+																":blogId",
+																"report"
+															],
+															"variable": [
+																{
+																	"key": "blogId"
+																}
+															]
+														}
+													},
+													"status": "Forbidden",
+													"code": 403,
+													"_postman_previewlanguage": "text",
+													"header": [],
+													"cookie": [],
+													"body": ""
+												},
+												{
+													"name": "Blog or user not found",
+													"originalRequest": {
+														"method": "POST",
+														"header": [
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"reason\": \"<string>\"\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/api/blogs/:blogId/report",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"blogs",
+																":blogId",
+																"report"
+															],
+															"variable": [
+																{
+																	"key": "blogId"
+																}
+															]
+														}
+													},
+													"status": "Not Found",
+													"code": 404,
+													"_postman_previewlanguage": "text",
+													"header": [],
+													"cookie": [],
+													"body": ""
+												},
+												{
+													"name": "Method not allowed",
+													"originalRequest": {
+														"method": "POST",
+														"header": [
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"reason\": \"<string>\"\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/api/blogs/:blogId/report",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"blogs",
+																":blogId",
+																"report"
+															],
+															"variable": [
+																{
+																	"key": "blogId"
+																}
+															]
+														}
+													},
+													"status": "Method Not Allowed",
+													"code": 405,
+													"_postman_previewlanguage": "text",
+													"header": [],
+													"cookie": [],
+													"body": ""
+												},
+												{
+													"name": "Internal server error",
+													"originalRequest": {
+														"method": "POST",
+														"header": [
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"reason\": \"<string>\"\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/api/blogs/:blogId/report",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"blogs",
+																":blogId",
+																"report"
+															],
+															"variable": [
+																{
+																	"key": "blogId"
+																}
+															]
+														}
+													},
+													"status": "Internal Server Error",
+													"code": 500,
+													"_postman_previewlanguage": "text",
+													"header": [],
+													"cookie": [],
+													"body": ""
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "Get a blog by ID",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/blogs/:blogId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"blogs",
+												":blogId"
+											],
+											"variable": [
+												{
+													"key": "blogId",
+													"value": "<integer>",
+													"description": "(Required) The ID of the blog to retrieve"
+												}
+											]
+										},
+										"description": "Retrieve a blog by its ID. If the blog is hidden, only the author or an admin can view it."
+									},
+									"response": [
+										{
+											"name": "A blog object",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/blogs/:blogId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"blogs",
+														":blogId"
+													],
+													"variable": [
+														{
+															"key": "blogId"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"id\": \"<integer>\",\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"content\": \"<string>\",\n  \"ishidden\": \"<boolean>\",\n  \"authorId\": \"<integer>\"\n}"
+										},
+										{
+											"name": "Forbidden",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/blogs/:blogId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"blogs",
+														":blogId"
+													],
+													"variable": [
+														{
+															"key": "blogId"
+														}
+													]
+												}
+											},
+											"status": "Forbidden",
+											"code": 403,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										},
+										{
+											"name": "Blog not found",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/blogs/:blogId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"blogs",
+														":blogId"
+													],
+													"variable": [
+														{
+															"key": "blogId"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										},
+										{
+											"name": "Internal server error",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/blogs/:blogId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"blogs",
+														":blogId"
+													],
+													"variable": [
+														{
+															"key": "blogId"
+														}
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								},
+								{
+									"name": "Edit a blog by ID",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"content\": \"<string>\",\n  \"BlogPostTag\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"likendTemp\": [\n    1 //must be integer\n  ]\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/blogs/:blogId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"blogs",
+												":blogId"
+											],
+											"variable": [
+												{
+													"key": "blogId",
+													"value": "1",
+													"description": "(Required) The ID of the blog to edit"
+												}
+											]
+										},
+										"description": "Edit a blog by its ID. Only the author can edit the blog."
+									},
+									"response": [
+										{
+											"name": "The updated blog object",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"content\": \"<string>\",\n  \"BlogPostTag\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"likendTemp\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/blogs/:blogId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"blogs",
+														":blogId"
+													],
+													"variable": [
+														{
+															"key": "blogId"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"id\": \"<integer>\",\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"content\": \"<string>\",\n  \"BlogPostTag\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"likendTemp\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}"
+										},
+										{
+											"name": "Forbidden",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"content\": \"<string>\",\n  \"BlogPostTag\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"likendTemp\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/blogs/:blogId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"blogs",
+														":blogId"
+													],
+													"variable": [
+														{
+															"key": "blogId"
+														}
+													]
+												}
+											},
+											"status": "Forbidden",
+											"code": 403,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										},
+										{
+											"name": "Blog or user not found",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"content\": \"<string>\",\n  \"BlogPostTag\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"likendTemp\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/blogs/:blogId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"blogs",
+														":blogId"
+													],
+													"variable": [
+														{
+															"key": "blogId"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										},
+										{
+											"name": "Internal server error",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"content\": \"<string>\",\n  \"BlogPostTag\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"likendTemp\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/blogs/:blogId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"blogs",
+														":blogId"
+													],
+													"variable": [
+														{
+															"key": "blogId"
+														}
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								},
+								{
+									"name": "Delete a blog by ID",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/blogs/:blogId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"blogs",
+												":blogId"
+											],
+											"variable": [
+												{
+													"key": "blogId",
+													"value": "<integer>",
+													"description": "(Required) The ID of the blog to delete"
+												}
+											]
+										},
+										"description": "Delete a blog by its ID. Only the author can delete the blog."
+									},
+									"response": [
+										{
+											"name": "No content",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/blogs/:blogId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"blogs",
+														":blogId"
+													],
+													"variable": [
+														{
+															"key": "blogId"
+														}
+													]
+												}
+											},
+											"status": "No Content",
+											"code": 204,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										},
+										{
+											"name": "Forbidden",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/blogs/:blogId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"blogs",
+														":blogId"
+													],
+													"variable": [
+														{
+															"key": "blogId"
+														}
+													]
+												}
+											},
+											"status": "Forbidden",
+											"code": 403,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										},
+										{
+											"name": "Blog or user not found",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/blogs/:blogId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"blogs",
+														":blogId"
+													],
+													"variable": [
+														{
+															"key": "blogId"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										},
+										{
+											"name": "Internal server error",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/blogs/:blogId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"blogs",
+														":blogId"
+													],
+													"variable": [
+														{
+															"key": "blogId"
+														}
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "Create a new blog post",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"title\": \"<to be deleted>\",\n  \"description\": \"<string>\",\n  \"content\": \"<string>\",\n  \"BlogPostTag\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"likendTemp\": [\n    1\n  ]\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/blogs",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"blogs"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Blog post created successfully",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"content\": \"<string>\",\n  \"BlogPostTag\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"likendTemp\": [\n    {\n      \"id\": \"<integer>\"\n    },\n    {\n      \"id\": \"<integer>\"\n    }\n  ]\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/blogs",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"blogs"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"id\": \"<integer>\",\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"content\": \"<string>\",\n  \"authorId\": \"<integer>\",\n  \"BlogPostTag\": [\n    {\n      \"id\": \"<integer>\"\n    },\n    {\n      \"id\": \"<integer>\"\n    }\n  ],\n  \"likendTemp\": [\n    {\n      \"id\": \"<integer>\"\n    },\n    {\n      \"id\": \"<integer>\"\n    }\n  ]\n}"
+								},
+								{
+									"name": "Missing required fields",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"content\": \"<string>\",\n  \"BlogPostTag\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"likendTemp\": [\n    {\n      \"id\": \"<integer>\"\n    },\n    {\n      \"id\": \"<integer>\"\n    }\n  ]\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/blogs",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"blogs"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "User not found",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"content\": \"<string>\",\n  \"BlogPostTag\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"likendTemp\": [\n    {\n      \"id\": \"<integer>\"\n    },\n    {\n      \"id\": \"<integer>\"\n    }\n  ]\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/blogs",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"blogs"
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Internal server error",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"content\": \"<string>\",\n  \"BlogPostTag\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"likendTemp\": [\n    {\n      \"id\": \"<integer>\"\n    },\n    {\n      \"id\": \"<integer>\"\n    }\n  ]\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/blogs",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"blogs"
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Get all blog posts",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/blogs?search=<string>&sortBy=rating&page=1&limit=10",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"blogs"
+									],
+									"query": [
+										{
+											"key": "search",
+											"value": "<string>",
+											"description": "Search term to filter blog posts"
+										},
+										{
+											"key": "sortBy",
+											"value": "rating",
+											"description": "Sort blog posts by rating or creation date"
+										},
+										{
+											"key": "page",
+											"value": "1",
+											"description": "Page number for pagination"
+										},
+										{
+											"key": "limit",
+											"value": "10",
+											"description": "Number of blog posts per page"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "A list of blog posts",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/blogs?search=<string>&sortBy=rating&page=1&limit=10",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"blogs"
+											],
+											"query": [
+												{
+													"key": "search",
+													"value": "<string>",
+													"description": "Search term to filter blog posts"
+												},
+												{
+													"key": "sortBy",
+													"value": "rating",
+													"description": "Sort blog posts by rating or creation date"
+												},
+												{
+													"key": "page",
+													"value": "1",
+													"description": "Page number for pagination"
+												},
+												{
+													"key": "limit",
+													"value": "10",
+													"description": "Number of blog posts per page"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "[\n  {\n    \"id\": \"<integer>\",\n    \"title\": \"<string>\",\n    \"description\": \"<string>\",\n    \"content\": \"<string>\",\n    \"authorId\": \"<integer>\",\n    \"BlogPostTag\": [\n      {\n        \"id\": \"<integer>\"\n      },\n      {\n        \"id\": \"<integer>\"\n      }\n    ],\n    \"likendTemp\": [\n      {\n        \"id\": \"<integer>\"\n      },\n      {\n        \"id\": \"<integer>\"\n      }\n    ]\n  },\n  {\n    \"id\": \"<integer>\",\n    \"title\": \"<string>\",\n    \"description\": \"<string>\",\n    \"content\": \"<string>\",\n    \"authorId\": \"<integer>\",\n    \"BlogPostTag\": [\n      {\n        \"id\": \"<integer>\"\n      },\n      {\n        \"id\": \"<integer>\"\n      }\n    ],\n    \"likendTemp\": [\n      {\n        \"id\": \"<integer>\"\n      },\n      {\n        \"id\": \"<integer>\"\n      }\n    ]\n  }\n]"
+								},
+								{
+									"name": "Internal server error",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/blogs?search=<string>&sortBy=rating&page=1&limit=10",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"blogs"
+											],
+											"query": [
+												{
+													"key": "search",
+													"value": "<string>",
+													"description": "Search term to filter blog posts"
+												},
+												{
+													"key": "sortBy",
+													"value": "rating",
+													"description": "Sort blog posts by rating or creation date"
+												},
+												{
+													"key": "page",
+													"value": "1",
+													"description": "Page number for pagination"
+												},
+												{
+													"key": "limit",
+													"value": "10",
+													"description": "Number of blog posts per page"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "users",
+					"item": [
+						{
+							"name": "login",
+							"item": [
+								{
+									"name": "Login a user",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"// Assuming the token is in the response body as a JSON object",
+													"const response = pm.response.json();",
+													"const token = response.accessToken; ",
+													"const refreshToken= response.refreshToken;",
+													"// Set the token as an environment variable",
+													"pm.environment.set(\"token\", token);",
+													"pm.environment.set(\"refreshToken\", refreshToken)"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"username\": \"user\",\n  \"password\": \"password\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/users/login",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"users",
+												"login"
+											]
+										},
+										"description": "Authenticate a user with username and password and return an access token."
+									},
+									"response": [
+										{
+											"name": "Successfully authenticated",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"username\": \"<string>\",\n  \"password\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/users/login",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"users",
+														"login"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"accessToken\": \"<string>\"\n}"
+										},
+										{
+											"name": "Invalid credentials or missing fields",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"username\": \"<string>\",\n  \"password\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/users/login",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"users",
+														"login"
+													]
+												}
+											},
+											"status": "Unauthorized",
+											"code": 401,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"error\": \"<string>\"\n}"
+										},
+										{
+											"name": "Method not allowed",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"username\": \"<string>\",\n  \"password\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/users/login",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"users",
+														"login"
+													]
+												}
+											},
+											"status": "Method Not Allowed",
+											"code": 405,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"error\": \"<string>\"\n}"
+										},
+										{
+											"name": "Internal server error",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"username\": \"<string>\",\n  \"password\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/users/login",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"users",
+														"login"
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"error\": \"<string>\"\n}"
+										}
+									]
+								},
+								{
+									"name": "Login an admin",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"// Assuming the token is in the response body as a JSON object",
+													"const response = pm.response.json();",
+													"const token = response.accessToken; ",
+													"",
+													"// Set the token as an environment variable",
+													"pm.environment.set(\"admintoken\", token);",
+													"pm.environment.set(\"adminRefreshToken\", response.refreshToken)"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"username\": \"admin\",\n  \"password\": \"admin_password\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/users/login",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"users",
+												"login"
+											]
+										},
+										"description": "Authenticate a user with username and password and return an access token."
+									},
+									"response": [
+										{
+											"name": "Successfully authenticated",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"username\": \"<string>\",\n  \"password\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/users/login",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"users",
+														"login"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"accessToken\": \"<string>\"\n}"
+										},
+										{
+											"name": "Invalid credentials or missing fields",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"username\": \"<string>\",\n  \"password\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/users/login",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"users",
+														"login"
+													]
+												}
+											},
+											"status": "Unauthorized",
+											"code": 401,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"error\": \"<string>\"\n}"
+										},
+										{
+											"name": "Method not allowed",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"username\": \"<string>\",\n  \"password\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/users/login",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"users",
+														"login"
+													]
+												}
+											},
+											"status": "Method Not Allowed",
+											"code": 405,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"error\": \"<string>\"\n}"
+										},
+										{
+											"name": "Internal server error",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"username\": \"<string>\",\n  \"password\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/users/login",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"users",
+														"login"
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"error\": \"<string>\"\n}"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "profile",
+							"item": [
+								{
+									"name": "Get user profile",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/users/profile",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"users",
+												"profile"
+											]
+										},
+										"description": "Retrieves the profile of the authenticated user."
+									},
+									"response": [
+										{
+											"name": "User profile retrieved successfully",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/users/profile",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"users",
+														"profile"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"profile\": {\n    \"email\": \"<string>\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"avatar\": \"<string>\",\n    \"username\": \"<string>\",\n    \"role\": \"<string>\"\n  }\n}"
+										},
+										{
+											"name": "User not found",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/users/profile",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"users",
+														"profile"
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"error\": \"<string>\"\n}"
+										},
+										{
+											"name": "Internal server error",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/users/profile",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"users",
+														"profile"
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"error\": \"<string>\"\n}"
+										}
+									]
+								},
+								{
+									"name": "Update user profile",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"email\": \"ltest@gmail.com\",\n  \"firstName\": \"test\",\n  \"lastName\": \"2dd\",\n  \"avatar\": \"/output.png\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/users/profile",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"users",
+												"profile"
+											]
+										},
+										"description": "Updates the profile of the authenticated user."
+									},
+									"response": [
+										{
+											"name": "User profile updated successfully",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"email\": \"<string>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"avatar\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/users/profile",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"users",
+														"profile"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"profile\": {\n    \"email\": \"<string>\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"avatar\": \"<string>\"\n  }\n}"
+										},
+										{
+											"name": "Invalid email format",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"email\": \"<string>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"avatar\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/users/profile",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"users",
+														"profile"
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"error\": \"<string>\"\n}"
+										},
+										{
+											"name": "User not found",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"email\": \"<string>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"avatar\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/users/profile",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"users",
+														"profile"
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"error\": \"<string>\"\n}"
+										},
+										{
+											"name": "Method not allowed",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"email\": \"<string>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"avatar\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/users/profile",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"users",
+														"profile"
+													]
+												}
+											},
+											"status": "Method Not Allowed",
+											"code": 405,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"error\": \"<string>\"\n}"
+										},
+										{
+											"name": "Internal server error",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"email\": \"<string>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"avatar\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/users/profile",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"users",
+														"profile"
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"error\": \"<string>\"\n}"
+										}
+									]
+								},
+								{
+									"name": "Upload profile picture file",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "multipart/form-data",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "file",
+													"type": "file",
+													"src": "/C:/Users/lilyx/OneDrive/Pictures/sem211styeartimetable.png"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/users/uploadAvatar",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"users",
+												"uploadAvatar"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "get photo",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/users/getAvatar?id=2",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"users",
+												"getAvatar"
+											],
+											"query": [
+												{
+													"key": "id",
+													"value": "2"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "register",
+							"item": [
+								{
+									"name": "Register a new user",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"username\": \"<string>\",\n  \"password\": \"<string>\",\n  \"role\": \"<string>\",\n  \"adminSecret\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/users/register",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"users",
+												"register"
+											]
+										},
+										"description": "Registers a new user with a username and password. If the role is ADMIN, an adminSecret is required."
+									},
+									"response": [
+										{
+											"name": "User created successfully",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"username\": \"user\",\n  \"password\": \"password\",\n  \"role\": \"USER\"\n//  \"adminSecret\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "http://localhost:3001/api/users/register",
+													"protocol": "http",
+													"host": [
+														"localhost"
+													],
+													"port": "3001",
+													"path": [
+														"api",
+														"users",
+														"register"
+													]
+												}
+											},
+											"status": "Created",
+											"code": 201,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"user\": {\n    \"id\": \"<string>\",\n    \"username\": \"<string>\",\n    \"role\": \"<string>\"\n  }\n}"
+										},
+										{
+											"name": "Bad request (e.g., username already taken, missing username or password)",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"username\": \"<string>\",\n  \"password\": \"<string>\",\n  \"role\": \"<string>\",\n  \"adminSecret\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/users/register",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"users",
+														"register"
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"error\": \"<string>\"\n}"
+										},
+										{
+											"name": "Unauthorized to register as admin",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"username\": \"<string>\",\n  \"password\": \"<string>\",\n  \"role\": \"<string>\",\n  \"adminSecret\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/users/register",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"users",
+														"register"
+													]
+												}
+											},
+											"status": "Forbidden",
+											"code": 403,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"error\": \"<string>\"\n}"
+										},
+										{
+											"name": "Method not allowed",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"username\": \"<string>\",\n  \"password\": \"<string>\",\n  \"role\": \"<string>\",\n  \"adminSecret\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/users/register",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"users",
+														"register"
+													]
+												}
+											},
+											"status": "Method Not Allowed",
+											"code": 405,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"error\": \"<string>\"\n}"
+										},
+										{
+											"name": "Internal server error",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"username\": \"<string>\",\n  \"password\": \"<string>\",\n  \"role\": \"<string>\",\n  \"adminSecret\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/users/register",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"users",
+														"register"
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"error\": \"<string>\"\n}"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "refresh accesstoken",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"const response = pm.response.json();\r",
+											"const token = response.accessToken; \r",
+											"// Set the token as an environment variable\r",
+											"if(response.role===\"USER\"){pm.environment.set(\"token\", token);}\r",
+											"else {pm.environment.set(\"admintoken\",token)}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"refreshToken\": \"{{refreshToken}}\"}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/users/refresh",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"users",
+										"refresh"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "refresh adminAccesstoken",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"const response = pm.response.json();\r",
+											"const token = response.accessToken; \r",
+											"// Set the token as an environment variable\r",
+											"if(response.role===\"USER\"){pm.environment.set(\"token\", token);}\r",
+											"else {pm.environment.set(\"admintoken\",token)}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"refreshToken\": \"{{adminRefreshToken}}\"}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/users/refresh",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"users",
+										"refresh"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "vote",
+					"item": [
+						{
+							"name": "Create a vote",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"votingId\": 1,\n  \"votingType\": \"blog_post\",\n  \"isUpvote\": true //no quotation marks around true/false values\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/vote",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"vote"
+									]
+								},
+								"description": "Allows a user to upvote or downvote a blog post or comment."
+							},
+							"response": [
+								{
+									"name": "Vote created",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"votingId\": \"<integer>\",\n  \"votingType\": \"comment\",\n  \"isUpvote\": \"<boolean>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/vote",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"vote"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Missing required fields or user already voted",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"votingId\": \"<integer>\",\n  \"votingType\": \"comment\",\n  \"isUpvote\": \"<boolean>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/vote",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"vote"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "User not found",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"votingId\": \"<integer>\",\n  \"votingType\": \"comment\",\n  \"isUpvote\": \"<boolean>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/vote",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"vote"
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Internal server error",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"votingId\": \"<integer>\",\n  \"votingType\": \"comment\",\n  \"isUpvote\": \"<boolean>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/vote",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"vote"
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Delete a vote",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"votingId\": 1,\n  \"votingType\": \"blog_post\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/vote",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"vote"
+									]
+								},
+								"description": "Allows a user to delete their vote on a blog post or comment."
+							},
+							"response": [
+								{
+									"name": "Vote deleted",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"votingId\": \"<integer>\",\n  \"votingType\": \"blog_post\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/vote",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"vote"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Missing required fields",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"votingId\": \"<integer>\",\n  \"votingType\": \"blog_post\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/vote",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"vote"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Vote not found or user not found",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"votingId\": \"<integer>\",\n  \"votingType\": \"blog_post\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/vote",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"vote"
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Internal server error",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"votingId\": \"<integer>\",\n  \"votingType\": \"blog_post\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/vote",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"vote"
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "code",
+					"item": [
+						{
+							"name": "templates",
+							"item": [
+								{
+									"name": "visitor: get all or filtered templates",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/code/templates",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"code",
+												"templates"
+											],
+											"query": [
+												{
+													"key": "title",
+													"value": "",
+													"description": "title to search by (none of the queries are required)",
+													"disabled": true
+												},
+												{
+													"key": "tags",
+													"value": "[<string>]",
+													"description": "array of strings to search by, strings seperated by comma, square bracks not necessary)",
+													"disabled": true
+												},
+												{
+													"key": "code",
+													"value": "hello",
+													"description": "content of code to search by",
+													"disabled": true
+												},
+												{
+													"key": "page",
+													"value": "<integer>",
+													"description": "current page",
+													"disabled": true
+												},
+												{
+													"key": "pageSize",
+													"value": "<integer>",
+													"description": "items per page",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "get all codes no filters",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/code/templates",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"code",
+														"templates"
+													]
+												}
+											},
+											"_postman_previewlanguage": null,
+											"header": null,
+											"cookie": [],
+											"body": null
+										}
+									]
+								},
+								{
+									"name": "specific user: get all or filtered",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/code/templates?authorId=2",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"code",
+												"templates"
+											],
+											"query": [
+												{
+													"key": "title",
+													"value": "<string>",
+													"description": "title to search by (will return all templates that contain title and all other filters)",
+													"disabled": true
+												},
+												{
+													"key": "code",
+													"value": "<string>",
+													"description": "content of code to search by",
+													"disabled": true
+												},
+												{
+													"key": "tags",
+													"value": "[strings,string2]",
+													"description": "will work if passing in strings seprated by comma, or strings sep. by comma w/ square brackets",
+													"disabled": true
+												},
+												{
+													"key": "authorId",
+													"value": "2"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "specific user: get all or filtered",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/code/templates?authorId=1",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"code",
+														"templates"
+													],
+													"query": [
+														{
+															"key": "title",
+															"value": "<string>",
+															"description": "title to search by (will return all templates that contain title and all other filters)",
+															"disabled": true
+														},
+														{
+															"key": "code",
+															"value": "<string>",
+															"description": "content of code to search by",
+															"disabled": true
+														},
+														{
+															"key": "authorId",
+															"value": "1"
+														},
+														{
+															"key": "tags",
+															"value": "[strings,string2]",
+															"description": "will work if passing in strings seprated by comma, or strings sep. by comma w/ square brackets",
+															"disabled": true
+														}
+													]
+												}
+											},
+											"_postman_previewlanguage": null,
+											"header": null,
+											"cookie": [],
+											"body": null
+										}
+									]
+								},
+								{
+									"name": "add new code template (authenticated user)",
+									"request": {
+										"auth": {
+											"type": "jwt",
+											"jwt": [
+												{
+													"key": "payload",
+													"value": "{\r\n    \"id\": 1,\r\n    \"role\": \"USER\"\r\n}",
+													"type": "string"
+												},
+												{
+													"key": "addTokenTo",
+													"value": "header",
+													"type": "string"
+												},
+												{
+													"key": "secret",
+													"value": "843789jjeejldkeJDdjejkflrWJerjklerfjrelfre9f9",
+													"type": "string"
+												},
+												{
+													"key": "algorithm",
+													"value": "HS256",
+													"type": "string"
+												},
+												{
+													"key": "isSecretBase64Encoded",
+													"value": false,
+													"type": "boolean"
+												},
+												{
+													"key": "headerPrefix",
+													"value": "Bearer",
+													"type": "string"
+												},
+												{
+													"key": "queryParamKey",
+													"value": "token",
+													"type": "string"
+												},
+												{
+													"key": "header",
+													"value": "{}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{ //example of a body to send to the user: code, language and title are required\r\n    \"title\": \"this file\",\r\n    \"code\": \"System.out.println()\",\r\n    \"language\": \"java\",\r\n    \"description\": \"print hello world\",\r\n    \"tags\": [\r\n        \"tag1\", \"tag2\"\r\n    ]\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/code/templates/add/",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"code",
+												"templates",
+												"add",
+												""
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "add new code template (authenticated user)",
+											"originalRequest": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{ //example of a body to send to the user: code, language and title are required\r\n    \"title\": \"this file\",\r\n    \"code\": \"print('hello world')\",\r\n    \"language\": \"python\",\r\n    \"description\": \"print hello world\",\r\n    \"tags\": [\r\n        \"tag1\", \"tag2\"\r\n    ]\r\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/code/templates/add/",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"code",
+														"templates",
+														"add",
+														""
+													]
+												}
+											},
+											"_postman_previewlanguage": null,
+											"header": null,
+											"cookie": [],
+											"body": null
+										}
+									]
+								},
+								{
+									"name": "get specific code template by id",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/code/templates/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"code",
+												"templates",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<Integer>",
+													"description": "ID of of the code template to be returned\n"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "get specific code template by id",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/code/templates/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"code",
+														"templates",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "<Integer>",
+															"description": "ID of of the code template to be returned\n"
+														}
+													]
+												}
+											},
+											"_postman_previewlanguage": null,
+											"header": null,
+											"cookie": [],
+											"body": null
+										}
+									]
+								},
+								{
+									"name": "edit specific code template (authenticated user)",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{ //example body none of these fields are necessary, defaults to whatever the code template was before the change\r\n        \"title\": \"this file\",\r\n    \"code\": \"print('hello world')\",\r\n    \"language\": \"python\",\r\n    \"description\": \"print hello world\",\r\n    \"tags\": [\r\n        \"tag1\", \"other tag\", \"tag4\"\r\n    ]\r\n}\r\n",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/code/templates/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"code",
+												"templates",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "2",
+													"description": "ID of of the code template to be returned\n"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "edit specific code template (authenticated user)",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{ //example body none of these fields are necessary, defaults to whatever the code template was before the change\r\n        \"title\": \"this file\",\r\n    \"code\": \"print('hello world')\",\r\n    \"language\": \"python\",\r\n    \"description\": \"print hello world\",\r\n    \"tags\": [\r\n        \"tag1\", \"other tag\"\r\n    ],\r\n    \"token\": \"ASDASdshkjhlvjhhriefdsalkjch\"\r\n}\r\n",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/code/templates/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"code",
+														"templates",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "<Integer>",
+															"description": "ID of of the code template to be returned\n"
+														}
+													]
+												}
+											},
+											"_postman_previewlanguage": null,
+											"header": null,
+											"cookie": [],
+											"body": null
+										}
+									]
+								},
+								{
+									"name": "delete specific code template by id",
+									"request": {
+										"auth": {
+											"type": "jwt",
+											"jwt": [
+												{
+													"key": "addTokenTo",
+													"value": "header",
+													"type": "string"
+												},
+												{
+													"key": "payload",
+													"value": "{\r\n    \"id\": 4,\r\n    \"role\": \"USER\"\r\n}",
+													"type": "string"
+												},
+												{
+													"key": "secret",
+													"value": "843789jjeejldkeJDdjejkflrWJerjklerfjrelfre9f9",
+													"type": "string"
+												},
+												{
+													"key": "algorithm",
+													"value": "HS256",
+													"type": "string"
+												},
+												{
+													"key": "isSecretBase64Encoded",
+													"value": false,
+													"type": "boolean"
+												},
+												{
+													"key": "headerPrefix",
+													"value": "Bearer",
+													"type": "string"
+												},
+												{
+													"key": "queryParamKey",
+													"value": "token",
+													"type": "string"
+												},
+												{
+													"key": "header",
+													"value": "{}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/code/templates/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"code",
+												"templates",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<Integer>",
+													"description": "ID of code template to be deleted"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"description": "This folder deals with everything related to specifically CODE TEMPLATES"
+						},
+						{
+							"name": "execute code",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{   //example body code for python\r\n    \"code\": \"print(\\\"hello world\\\")\",\r\n    \"language\": \"python\"\r\n    \r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/code/execute",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"code",
+										"execute"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "execute code: python",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{   //example body code for python\r\n    \"code\": \"for i in range(3):\\n\\tname = input(\\\"Enter a name: \\\")\\n\\tprint(f\\\"Hello, {name}!\\\")\",\r\n    \"language\": \"python\",\r\n    \"stdin\": \"ohn\\nginny\\ndude\\n\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/code/execute",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"code",
+												"execute"
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": null
+								},
+								{
+									"name": "execute code javascript",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{   //example body code for javascript\r\n{\r\n  \"code\": \"const readline = require('readline');\\n\\nconst rl = readline.createInterface({\\n  input: process.stdin,\\n  output: process.stdout\\n});\\n\\nlet count = 0;\\n\\nfunction askName() {\\n  if (count < 3) {\\n    rl.question(`Enter name #${count + 1}: `, (name) => {\\n      console.log(`Hello, ${name}!`);\\n      count++;\\n      askName();\\n    });\\n  } else {\\n    rl.close();\\n  }\\n}\\n\\naskName();\"\r\n}\r\n    \"language\": \"javascript\",\r\n    \"stdin\": \"ohn\\nginny\\ndude\\n\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/code/execute",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"code",
+												"execute"
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": null
+								},
+								{
+									"name": "execute code java",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{   //example body code for python\r\n\r\n  \"code\": \"import java.util.Scanner;\\n\\npublic class Main {\\n    public static void main(String[] args) {\\n        Scanner scanner = new Scanner(System.in);\\n        for (int i = 0; i < 3; i++) {\\n            System.out.print(\\\"Enter name #\\\" + (i + 1) + \\\": \\\");\\n            String name = scanner.nextLine();\\n            System.out.println(\\\"Hello, \\\" + name + \\\"!\\\");\\n        }\\n        scanner.close();\\n    }\\n}\"\r\n,\r\n    \"language\": \"javascript\",\r\n    \"stdin\": \"ohn\\nginny\\ndude\\n\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/code/execute",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"code",
+												"execute"
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": null
+								},
+								{
+									"name": "execute code c",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{   //example body code for python\r\n\r\n  \"code\": \"#include <stdio.h>\\n\\nint main() {\\n    char name[100];\\n\\n    for (int i = 0; i < 3; i++) {\\n        printf(\\\"Enter name #%d: \\\", i + 1);\\n        fgets(name, sizeof(name), stdin);  // Read the name\\n        printf(\\\"Hello, %s\\\", name);          // Print the greeting\\n    }\\n\\n    return 0;\\n}\"\r\n,\r\n    \"language\": \"c\",\r\n    \"stdin\": \"ohn\\nginny\\ndude\\n\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/code/execute",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"code",
+												"execute"
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": null
+								},
+								{
+									"name": "execute code cpp",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{   //example body code for python\r\n  \"code\": \"#include <iostream>\\n#include <string>\\n\\nint main() {\\n    std::string name;\\n\\n    for (int i = 0; i < 3; i++) {\\n        std::cout << \\\"Enter name #\\\" << (i + 1) << \\\": \\\";\\n        std::getline(std::cin, name);  // Read the name\\n        std::cout << \\\"Hello, \\\" << name << \\\"!\\\" << std::endl;  // Print the greeting\\n    }\\n\\n    return 0;\\n}\",\r\n    \"language\": \"python\",\r\n    \"stdin\": \"ohn\\nginny\\ndude\\n\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/code/execute",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"code",
+												"execute"
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": null
+								}
+							]
+						}
+					],
+					"description": "This folder deals with everything related to code",
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "string"
+							}
+						]
+					},
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "/"
+		}
+	]
+}
