@@ -13,9 +13,7 @@
     "jsx": "preserve",
     "incremental": true,
     "paths": {
-      "@/*": ["./src/*"],
-      "@utils/*": ["./utils/*"],
-      "@styles/*": ["./styles/*"]
+      "@/*": ["*"]
     },
     "baseUrl": ".",
     "target": "ES2017"
