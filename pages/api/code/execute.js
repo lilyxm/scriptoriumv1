@@ -15,11 +15,11 @@ export default async function handler(req, res) {
     console.log("this is codestringified: ", JSON.stringify(code));
 
     const filePaths = {
-        'c': path.join(__dirname, 'Main.c'),
-        'python': path.join(__dirname, 'Main.py'),
-        'java': path.join(__dirname, 'Main.java'),
-        'cpp': path.join(__dirname, 'Main.cpp'),
-        'javascript': path.join(__dirname, 'Main.js')
+        'c': path.join(__dirname, 'executeFiles', 'Main.c'),
+        'python': path.join(__dirname, 'executeFiles', 'Main.py'),
+        'java': path.join(__dirname, 'executeFiles', 'Main.java'),
+        'cpp': path.join(__dirname, 'executeFiles', 'Main.cpp'),
+        'javascript': path.join(__dirname, 'executeFiles', 'Main.js')
     };
 
     const filePath = filePaths[language.toLowerCase()];

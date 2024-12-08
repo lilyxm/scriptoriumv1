@@ -21,6 +21,10 @@ async function adminGetBlogs(req, res) {
     }
 
     const sortByReports = req.query.sortByReports === "true";
+    const page = parseInt(req.query.page) || 1;
+    const pageSize = parseInt(req.query.pageSize) || 10;
+    const skip = (page - 1) * pageSize;
+    const take = pageSize;
 
     const blogs = await prisma.blogPost.findMany({
       orderBy: sortByReports
@@ -30,14 +34,18 @@ async function adminGetBlogs(req, res) {
         : {
             createdAt: "desc",
           },
+      skip: skip,
+      take: take,
       include: {
-        author: {
-          select: { username: true },
-        },
+        BlogPostTag: true,
+        likendTemp: true,
+        author: true,
       },
     });
 
-    return res.status(200).json({ blogs });
+    const totalBlogs = await prisma.blogPost.count();
+
+    return res.status(200).json({ blogs, totalBlogs, page, pageSize });
   } catch (error) {
     console.error(error);
     return res.status(500).json({ error: "Internal server error" });

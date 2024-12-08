@@ -14,31 +14,42 @@ export default async function handler(req, res) {
             },
             include: {
                 CodeTemplateTag: true,
+                author: true,
+                BlogPost: true,
             }
         });
         if (!template) {
             return res.status(404).json({ error: 'Code template not found' });
         }
+
+
     } catch (error) { res.status(500).send(error); }
 
-    console.log(template);
     if (req.method === 'GET') {
+        console.log("template", template);
+
         return res.status(200).json({ template });
     }
 
     else if (req.method === 'PUT') {
         const { code = template.code, language = template.language, title = template.title, description = template.description, tags = template.CodeTemplateTag.map(tag => tag.name) } = req.body;
         console.log(req.body);
-        //verify USERS
         let token;
         try {
             token = verifyToken(req);
         }
         catch (error) {
-            return res.status(401).json({ error: "Unauthorized", message: error.message });
-        }
+            console.log(error.message);
+            if (error.message === "Token expired") {
+                console.log("Token expired");
+                return res.status(402).json({ error: "Token expired" });
+            }
+            console.log(error.message);
 
-        if (token.id !== template.id) return res.status(401).json({ error: "code template does not belong to user" });
+            return res.status(401).json({ error: error.message });
+        }
+        console.log(token.id, template.id);
+        if (token.id !== template.authorId) return res.status(403).json({ error: "code template does not belong to user" });
 
         //query code template tags if already exists, if not create new
         const dbtags = await Promise.all(tags.map(async (name) => {

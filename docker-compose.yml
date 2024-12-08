@@ -1,0 +1,91 @@
+version: "3.8"
+
+services:
+  # Python Service
+  python:
+    build:
+      context: docker/python # Path to the directory with Dockerfile
+    image: python:3.9-slim # Use a specific version instead of "latest"
+    container_name: python_container
+    volumes:
+      - ./docker/python/data:/app/data
+
+  # C Service
+  c:
+    build:
+      context: ./docker/c # Path to C Docker directory
+    image: gcc:latest # Use a specific version to ensure stability
+    container_name: c_container
+    volumes:
+      - ./docker/c/data:/app/data
+
+  # C++ Service
+  cpp:
+    build:
+      context: ./docker/cpp # Path to C++ Docker directory
+    image: gcc:latest # Use a specific version
+    container_name: cpp_container
+    volumes:
+      - ./docker/cpp/data:/app/data
+
+  # Java Service
+  java:
+    build:
+      context: ./docker/java # Path to Java Docker directory
+    image: openjdk:11-jdk-slim # Use a specific version
+    container_name: java_container
+    volumes:
+      - ./docker/java/data:/app/data
+
+  # JavaScript Service (Node.js)
+  javascript:
+    build:
+      context: ./docker/js # Path to JavaScript Docker directory
+    image: node:22-slim # Use a specific Node.js version
+    container_name: javascript_container
+    volumes:
+      - ./docker/js/data:/app/data
+
+  # PHP Service
+  php:
+    build:
+      context: ./docker/php # Path to PHP Docker directory
+    image: php:8.1 # Use a specific PHP version
+    container_name: php_container
+    volumes:
+      - ./docker/php/data:/app/data
+
+  # Ruby Service
+  ruby:
+    build:
+      context: ./docker/ruby # Path to Ruby Docker directory
+    image: ruby:latest # Use a specific Ruby version
+    container_name: ruby_container
+    volumes:
+      - ./docker/ruby/data:/app/data
+
+  # Go Service
+  go:
+    build:
+      context: ./docker/go # Path to Go Docker directory
+    image: golang:1.20 # Use a specific Go version
+    container_name: go_container
+    volumes:
+      - ./docker/go/data:/app/data
+
+  #Swift Service
+  swift:
+    build:
+      context: ./docker/swift # Path to Swift Docker directory
+    image: swift:latest # Use a specific Swift version
+    container_name: swift_container
+    volumes:
+      - ./docker/swift/data:/app/data
+  # Bash Service
+  bash:
+    build:
+      context: ./docker/bash # Path to Bash Docker directory
+    image: bash:latest # Use a specific Bash version
+    container_name: bash_container
+    volumes:
+      - ./docker/bash/data:/app/data

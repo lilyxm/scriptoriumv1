@@ -8,17 +8,26 @@ export default async function handler(req, res) {
     if (req.method !== 'POST') {
         res.status(405).end(`Method ${req.method} Not Allowed`);
     }
-    const { code, language, title, description, tags } = req.body;
-    const token = verifyToken(req);
-    console.log("this is token: ", token);
-    if (!token) {
-        return res.status(401).json({ error: "Unauthorized" });
+    var { code, language, title, description, tags = [] } = req.body;
+    try {
+        var token = verifyToken(req);
+        console.log("this is token: ", token);
+        console.log("req.body", req.body);
+        console.log("IfTitle", title == '');
     }
-    if (!code || !language || !title) {
-        res.status(400).json({ error: 'missing required fields' });
+    catch (error) {
+        if (error.message === "Token expired")
+            return res.status(402).json({ error: "Token expired" });
+        return res.status(401).json({ error: "Unauthorized", message: error.message });
     }
-    console.log("this is tags: ", tags);
-
+    if (language == '' || title == '' || !language || !title) {
+        return res.status(400).json({ error: 'missing required fields' });
+    }
+    else if (tags == '' || !tags) tags = [];
+    else if (typeof tags === 'string') {
+        tags = tags.replace(/^\[|\]$/g, "").split(",").map(tag => tag.trim());
+        console.log("this is tags: ", tags);
+    }
     //create/find tags
     console.log(req.body);
     //const dbtags = tags.map(name => ({ name }));
@@ -70,9 +79,7 @@ export default async function handler(req, res) {
         console.log("newTemplate", newTemplate);
         return res.status(200).json({ success: true, template: newTemplate });
     } catch (error) {
-        if (error.code === "P2002") {
-            return res.status(400).json({ error: "Title already exists" });
-        }
+
         console.error("Error creating code template:", error);
         return res.status(500).json({ error: 'Internal Server Error' });
     }

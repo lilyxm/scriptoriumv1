@@ -21,6 +21,10 @@ async function adminGetComments(req, res) {
     }
 
     const sortByReports = req.query.sortByReports === "true";
+    const page = parseInt(req.query.page) || 1;
+    const pageSize = parseInt(req.query.pageSize) || 10;
+    const skip = (page - 1) * pageSize;
+    const take = pageSize;
 
     const comments = await prisma.comment.findMany({
       orderBy: sortByReports
@@ -31,10 +35,11 @@ async function adminGetComments(req, res) {
             createdAt: "desc",
           },
       include: {
-        author: {
-          select: { username: true },
-        },
+        author: true,
+        blogPost: true,
       },
+      skip: skip,
+      take: take,
     });
 
     return res.status(200).json({ comments });

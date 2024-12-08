@@ -13,7 +13,7 @@ export const config = {
 };
 export default async function handler(req, res) {
     if (req.method === "PUT") {
-        //console.log("this is req: ", req);
+        console.log("this is req: ", req);
         //const formData = req.body.file;
         let token;
         try {

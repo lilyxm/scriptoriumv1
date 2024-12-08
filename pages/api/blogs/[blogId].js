@@ -152,6 +152,7 @@ async function getBlogByID(req, res) {
   try {
     const blog = await prisma.blogPost.findUnique({
       where: { id: parseInt(blogId) },
+      include: { BlogPostTag: true, likendTemp: true, author: true },
     });
 
     if (!blog) {

@@ -18,7 +18,6 @@ export default function handler(req, res) {
     if (!refreshToken) {
       return res.status(400).json({ error: "Refresh token is required" });
     }
-    const payload = jwt.verify(refreshToken, JWT_REFRESH_SECRET);
 
     try {
       console.log("refreshToken", refreshToken);

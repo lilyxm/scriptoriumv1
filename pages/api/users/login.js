@@ -110,6 +110,12 @@ export default async function handler(req, res) {
     return res.status(200).json({
       accessToken,
       refreshToken,
+      user: {
+        id: user.id,
+        username: user.username,
+        role: user.role,
+        avatar: user.avatar,
+      },
     });
   } catch (error) {
     console.error(error);

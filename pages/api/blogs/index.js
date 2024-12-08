@@ -304,6 +304,7 @@ async function getBlogs(req, res) {
       include: {
         BlogPostTag: true,
         likendTemp: true,
+        author: true,
       },
       orderBy: orderByClause,
       skip: parseInt(skip),

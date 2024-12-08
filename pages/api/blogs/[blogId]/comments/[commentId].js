@@ -97,6 +97,9 @@ async function getCommentById(req, res) {
       where: {
         id: parseInt(commentId),
       },
+      include: {
+        author: true,
+      },
     });
 
     if (!comment) {

@@ -1,9 +1,5 @@
 import prisma from "@/utils/db";
-import jwt from "jsonwebtoken";
 import { verifyToken } from "@/utils/auth";
-import multer from "multer";
-import nc from "next-connect";
-import path from "path";
 
 
 
@@ -173,12 +169,19 @@ async function getProfile(req, res) {
       avatar: user.avatar,
       username: user.username,
       role: user.role,
+      phoneNumber: user.phoneNumber,
     };
 
 
     return res.status(200).json({ profile });
   } catch (error) {
     console.error(error);
+    if (error.message === "Token expired") {
+      return res.status(402).json({ error: "Token expired" });
+    }
+    if (error.message === "Invalid token") {
+      return res.status(401).json({ error: "Invalid token" });
+    }
     return res.status(500).json({ error: "Internal server error" });
   }
 }
@@ -199,7 +202,7 @@ async function updateProfile(req, res) {
       return res.status(404).json({ error: "User not found" });
     }
 
-    const { email, firstName, lastName, avatar } = req.body;
+    const { email, firstName, lastName, avatar, phoneNumber } = req.body;
     console.log("this is req.body: ", req.body);
 
     if (email) {
@@ -217,6 +220,9 @@ async function updateProfile(req, res) {
     if (avatar) {
       user.avatar = avatar;
     }
+    if (phoneNumber) {
+      user.phoneNumber = phoneNumber;
+    }
 
     await prisma.user.update({
       where: { id: decoded.id },
@@ -225,6 +231,7 @@ async function updateProfile(req, res) {
         firstName: user.firstName,
         lastName: user.lastName,
         avatar: user.avatar,
+        phoneNumber: user.phoneNumber,
       },
     });
 
@@ -234,10 +241,18 @@ async function updateProfile(req, res) {
         firstName: user.firstName,
         lastName: user.lastName,
         avatar: user.avatar,
+        phoneNumber: user.phoneNumber,
       },
     });
   } catch (error) {
+
     console.error(error);
+    if (error.message === "Token expired") {
+      return res.status(402).json({ error: "Token expired" });
+    }
+    if (error.message === "Invalid token") {
+      return res.status(401).json({ error: "Invalid token" });
+    }
     return res.status(500).json({ error: "Internal server error" });
   }
 }

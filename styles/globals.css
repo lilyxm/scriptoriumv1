@@ -7,11 +7,9 @@
   --foreground: #171717;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html.dark {
+  --background: #0a0a0a;
+  --foreground: #ededed;
 }
 
 body {
@@ -24,4 +22,46 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+.darkmode-button {
+  background-color: #333; /* Dark background */
+  border: none; /* Remove borders */
+  color: white; /* White text */
+  padding: 10px 20px; /* Some padding */
+  text-align: center; /* Centered text */
+  text-decoration: none; /* Remove underline */
+  display: inline-flex; /* Make the button inline-flex */
+  align-items: center; /* Center items vertically */
+  font-size: 16px; /* Increase font size */
+  margin: 4px 2px; /* Some margin */
+  cursor: pointer; /* Pointer/hand icon */
+  border-radius: 8px; /* Rounded corners */
+  transition-duration: 0.4s; /* 0.4 seconds transition effect to hover */
+}
+
+.darkmode-button i {
+  margin-right: 8px; /* Space between icon and text */
+}
+
+.darkmode-button:hover {
+  background-color: #555; /* Slightly lighter background on hover */
+}
+@layer components {
+  input {
+    @apply bg-white;
+  }
+
+  html.dark input {
+    @apply bg-gray-800;
+  }
+}
+select,
+textarea {
+  @apply bg-white;
+}
+
+html.dark select,
+html.dark textarea {
+  @apply bg-gray-800;
 }

@@ -146,7 +146,14 @@ async function addComment(req, res) {
       },
     });
 
-    return res.status(201).json(newComment);
+    // Return the newly created comment with the author
+
+    const newCommentWithAuthor = await prisma.comment.findUnique({
+      where: { id: newComment.id },
+      include: { author: true },
+    });
+
+    return res.status(201).json(newCommentWithAuthor);
   } catch (error) {
     console.error(error);
     return res.status(500).json({ error: "Internal server error" });
@@ -194,19 +201,43 @@ async function getComments(req, res) {
       blogPostId: parseInt(blogId),
     };
 
-    if (!decoded || decoded.role !== "ADMIN") {
+    // Only show hidden comments to admins or the author of the comment
+    console.log(decoded);
+    if (!decoded) {
+      // If the user is not authenticated, only show non-hidden comments
+      console.log("not decoded");
+      whereClause.AND = [{ ishidden: false }];
+    } else if (decoded.role === "ADMIN") {
+      // If the user is an admin, show all comments
+      whereClause.AND = [{ blogPostId: parseInt(blogId) }];
+    } else if (decoded.role === "USER") {
+      // If the user is a regular user, show non-hidden comments and the user's own comments
       whereClause.AND = [
         {
-          OR: [{ ishidden: false }, decoded ? { authorId: decoded.id } : {}],
+          OR: [
+            { ishidden: false },
+            { authorId: decoded.id },
+            { authorId: blog.authorId },
+          ],
         },
       ];
     }
+    console.log(whereClause);
+
+    // if (!decoded || decoded.role !== "ADMIN") {
+    //   whereClause.AND = [
+    //     {
+    //       OR: [{ ishidden: false }, decoded ? { authorId: decoded.id } : {}],
+    //     },
+    //   ];
+    // }
 
     const comments = await prisma.comment.findMany({
       where: whereClause,
       skip: parseInt(skip),
       take: parseInt(limit),
       orderBy: orderBy,
+      include: { author: true },
     });
 
     return res.status(200).json(comments);
