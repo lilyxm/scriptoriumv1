@@ -224,6 +224,11 @@ const CodeEditor: React.FC<CodeEditorProps> = ({
                     code: code,
                     language: language,
                     CodeTemplateTag: template.CodeTemplateTag,
+                    createdAt: template.createdAt,
+                    updatedAt: template.updatedAt,
+                    author: template.author,
+                    authorId: template.authorId,
+                    BlogPost: template.BlogPost,
                   }}
                   title={""}
                   description={""}
@@ -244,6 +249,11 @@ const CodeEditor: React.FC<CodeEditorProps> = ({
                     code: code,
                     language: language,
                     CodeTemplateTag: template.CodeTemplateTag,
+                    createdAt: template.createdAt,
+                    updatedAt: template.updatedAt,
+                    author: template.author,
+                    authorId: template.authorId,
+                    BlogPost: template.BlogPost,
                   }}
                   title={""}
                   description={""}

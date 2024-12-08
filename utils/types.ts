@@ -35,6 +35,7 @@ export type CodeTemplate = {
   authorId: number;
   CodeTemplateTag: CodeTemplateTag[];
   BlogPost: BlogPost[];
+  likendTemp?: CodeTemplate[];
 };
 
 export type BlogPostTag = {
